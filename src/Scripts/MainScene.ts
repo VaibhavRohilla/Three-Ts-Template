@@ -1,6 +1,6 @@
 import { Scene } from "three";
 import * as THREE from 'three';
-
+import { Globals } from "./Globals";
 
 export class MainScene extends Scene {
     
@@ -25,13 +25,26 @@ export class MainScene extends Scene {
         const plane =  new THREE.Mesh(planeG, planeM);
         this.add(plane)
         plane.rotateX(-0.5*Math.PI);
-        // const gridHelper = new THREE.GridHelper(100, 10);
-        // this.add(gridHelper);
-        const sphereG =  new THREE.SphereGeometry(1, 10, 10);
+
+        const sphereG =  new THREE.SphereGeometry(1.2, 100, 100);
         const sphereM = new THREE.MeshBasicMaterial({ color: 0xFFF000});
         const sphere = new THREE.Mesh(sphereG, sphereM);
-        sphere.position.x = plane.position.x+ 5;
         plane.add(sphere);
+        sphereM.wireframe = true;
+        
+        const skull = Globals.resources.skull
+        const c1 = skull.clone();
+        plane.add(c1);
+        const c2 = skull.clone();
+        plane.add(c2);
+        
+        c1.position.x = -1;
+        c2.position.x = 1;
+        
+        
+       
+        
+        
     }
 
     update() {
