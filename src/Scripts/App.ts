@@ -36,6 +36,7 @@ export class App {
         orbital.enablePan = true; // Enable panning control
         
         window.addEventListener('resize', () => this.onResize(), false);
+
         loaderModel().then(()=>{
             this.scene = new MainScene();
             Globals.Scene = this.scene;
