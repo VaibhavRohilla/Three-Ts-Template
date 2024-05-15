@@ -1,4 +1,5 @@
 import {  PerspectiveCamera } from "three";
+import { Globals } from "./Globals";
 
 export class Camera extends PerspectiveCamera {
     
@@ -9,6 +10,7 @@ export class Camera extends PerspectiveCamera {
         this.aspect = window.innerWidth / window.innerHeight;
         this.updateProjectionMatrix();
         this.position.y = 10;
+        Globals.Camera = this;
 
     }
 
