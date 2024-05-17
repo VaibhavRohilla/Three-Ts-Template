@@ -3,7 +3,8 @@ import * as THREE from 'three';
 import { Camera } from './Camera';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import {MainScene} from './MainScene';
-import { Globals, loaderModel } from './Globals';
+import { Globals } from './Globals';
+import { Loader } from './GameLoader';
 
 export class App {
     renderer!: THREE.WebGLRenderer;
@@ -22,26 +23,25 @@ export class App {
             canvas: document.getElementById('app') as HTMLCanvasElement,
             antialias: true 
         });
-        this.camera = new Camera();
         document.body.appendChild(this.renderer.domElement)
         this.renderer.setPixelRatio( window.devicePixelRatio  ||1)
         this.renderer.setSize(width, height);
         this.renderer.shadowMap.enabled = true;
         
-    
+        this.camera = new Camera();
+        const loader = new Loader();
         
         const orbital = new OrbitControls(this.camera, this.renderer.domElement);
         orbital.enableZoom = true; // Enable zoom control
         orbital.enableRotate = true; // Enable rotation control
         orbital.enablePan = true; // Enable panning control
         
-        window.addEventListener('resize', () => this.onResize(), false);
-
-        loaderModel().then(()=>{
+        loader.loaderModel().then(()=>{
             this.scene = new MainScene();
             Globals.Scene = this.scene;
             this.animate();
-    });
+        });
+        window.addEventListener('resize', () => this.onResize(), false);
 }
 
 animate() {

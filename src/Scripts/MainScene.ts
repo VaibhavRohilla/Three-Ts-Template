@@ -12,6 +12,7 @@ export class MainScene extends Scene {
 
         this.clock = new THREE.Clock()
         // Add lights to the scene
+        this.add(new THREE.AxesHelper(10));
         const ambientLight = new THREE.AmbientLight(0xffffff);
         this.add(ambientLight);
 
@@ -36,7 +37,7 @@ export class MainScene extends Scene {
         this.add(sphere);
         sphereM.wireframe = true;
 
-        this.player = Globals.resources.Angry;
+        this.player = Globals.fbxResources.Angry;
         console.log(this.player);
         this.player.scale.set(0.01,0.01,0.01)
 
