@@ -1,7 +1,7 @@
 ThreeJs Template With Typescript using vite!
 #### Still Work UnderConstruction 
 
-##### Vaibhav 2019
+##### Vaibhav 2024
 
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).
