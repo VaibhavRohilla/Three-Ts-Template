@@ -1,10 +1,10 @@
 Still Work UnderConstruction 🕥
 
-# Install dependencies (only for first time)
+#Install dependencies (only for first time)
 npm i
 
-# Serve at localhost
+#Serve at localhost
 npm run dev
 
-# Build for production in the dist/ directory
+#Build for production in the dist/ directory
 npm run build
